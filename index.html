@@ -1,0 +1,54 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Cardio array</title>
+</head>
+<body>
+    <script>
+        var inventor =[ {first:'saqib',last:'faisal',age:16,birth:2006},
+        {first:'sattar',last:'ashraf',age:15,birth:2005}]
+
+        
+        var fifteen = inventor.filter(inventor=>(inventor.age>=14 && inventor.age < 16))
+        console.table(fifteen)
+        // {
+            //     if(inventor.age>=14 && inventor.age < 16){
+        //         return true;
+        //     }
+        // }
+        // array.prototype.map
+
+        var fullNames = inventor.map(inventor => `${inventor.first} ${inventor.last}`)
+        console.log(fullNames)
+
+        // array.prototype.sort
+
+        //  var ordered = inventor.sort(function(a, b){
+        //     if(a.age,b.age){
+        //         return 1;
+        //     }else{
+        //         return -1;
+        //     }
+        //  })
+         var ordered = inventor.sort((a,b)=>a.age > b.age ? 1 : -1);
+         console.table(ordered)
+
+         //array.prototype.reduce
+         var totalAge  = inventor.reduce((total , inventor) => {
+            return total + (inventor.birth - inventor.age)
+         },0)
+         console.log(totalAge)
+
+        //  5. sort the inventors by age live
+        var oldest = inventor.sort(function(a,b){
+            var lastGuy = a.birth - a.age
+            var firstGuy = b.birth -b.age
+            return lastGuy>firstGuy ? -1 : 1;
+        })
+        console.table(oldest)
+    </script>
+</body>
+</html>
